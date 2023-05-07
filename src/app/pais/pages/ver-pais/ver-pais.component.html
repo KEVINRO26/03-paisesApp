@@ -1,0 +1,60 @@
+
+
+<div *ngIf="!pais; else divPais"
+    class="alert alert-info">
+    espere porfavor
+</div>
+
+
+<ng-template #divPais>
+    <div class="row">
+        <div *ngFor="let item of pais" class="col-12">
+            <h1> País: <small> {{ item.name.common }} </small></h1>
+        </div>
+    </div>
+
+    <div *ngFor="let item of pais" class="row">
+       <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="item.flags.png" class="img-thumbnail" />
+       </div> 
+       <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población</strong> {{ item.population | number }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código numérico</strong> {{ item.ccn3  }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código alpha3</strong> {{ item.cca3  }}
+                </li>
+
+            </ul>
+       </div>
+    </div>
+
+    <h3>Traducciones</h3>
+    <div *ngFor="let item of pais " class="row">
+        <div class="col">
+            <span class="badge bg-primary mr-1"> {{ item.translations['ara'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['bre'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['rus'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['cym'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['zho'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['per'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['fin'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['fra'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['hun'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['hrv'].common }} </span>
+            <span class="badge bg-primary mr-1"> {{ item.translations['jpn'].common }} </span>
+        </div>
+    </div>
+    
+    <!-- <pre *ngFor="let item of pais" class="mt-5">
+
+        {{ item | json }}
+    </pre> -->
+</ng-template>
+

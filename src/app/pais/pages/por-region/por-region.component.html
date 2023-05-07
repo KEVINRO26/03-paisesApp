@@ -1,0 +1,27 @@
+<div class = "animate__animated animate__fadeIn animate__faster">
+    <h3> Buscar Por region <small> {{ regionActiva | titlecase }}</small> </h3>
+    <!-- titlecase capitalisa el texto -->
+    <hr>
+    
+    <h5> Seleccione la region </h5>
+    
+    <div class="row">
+        <div class="col">
+            <button *ngFor="let region of regiones" 
+     
+                    [class]="getClaseCss( region )"    
+                    (click)="activarRegion( region )">  <!-- Me dara el nombre del boton que precione -->
+                {{ region | titlecase }}
+               
+            </button>
+        </div>
+    </div>
+    
+    <div *ngIf="paises.length > 0" class="row">
+        <div class="col">
+    
+            <app-pais-table [paises]="paises"></app-pais-table>
+    
+        </div>
+    </div>
+</div>
